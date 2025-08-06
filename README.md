@@ -1,6 +1,8 @@
-# ⚔️ Weapon Duel Game
+# ⚔️ Enhanced Weapon Duel Arena
 
-A simple 2-player turn-based dueling game built with HTML, CSS, JavaScript, and Supabase for real-time multiplayer functionality.
+🎮 **Play the Enhanced Version**: `index-enhanced.html` - Real-time multiplayer with skills, mana, shop, and inventory!
+
+A feature-rich 2-player dueling game with real-time WebSocket multiplayer, magic system, economy, and advanced combat mechanics.
 
 ## 🎮 Game Features
 
@@ -13,10 +15,14 @@ A simple 2-player turn-based dueling game built with HTML, CSS, JavaScript, and 
 
 ## 🚀 Quick Start
 
-### Demo Mode (No Setup Required)
-1. Open `index.html` in your web browser
-2. Enter your name and click "Join Game"
-3. Play against the AI opponent immediately!
+### Enhanced Multiplayer (Recommended)
+1. Start the server: `npm start` or `./start-local.sh`
+2. Open `http://localhost:3001/index-enhanced.html`
+3. Real-time battles with other players!
+
+### Original Demo Mode
+1. Open `index.html` in your web browser  
+2. Play against AI opponent offline
 
 ### Online Multiplayer Setup
 
