@@ -10,15 +10,30 @@ body {
     color: white;
     min-height: 100vh;
     overflow-x: hidden;
+    /* Mobile optimization */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    touch-action: manipulation;
+    /* Smooth scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
 }
 
 #game-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    /* Mobile optimization */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    #game-container {
+        padding: 20px;
+    }
 }
 
 header {
@@ -748,8 +763,36 @@ header h1 {
     }
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
+/* Enhanced Responsive Design */
+
+/* Large screens and desktops */
+@media (min-width: 1200px) {
+    .weapons-grid, .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .shop-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Medium screens - tablets landscape */
+@media (max-width: 1199px) and (min-width: 992px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+    
+    .player-avatar {
+        font-size: 4em;
+    }
+    
+    .weapons-grid, .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Tablets portrait and small laptops */
+@media (max-width: 991px) and (min-width: 768px) {
     .game-header {
         flex-direction: column;
         gap: 15px;
@@ -757,30 +800,447 @@ header h1 {
     
     .player-stats {
         min-width: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .battle-arena {
-        flex-direction: column;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         gap: 20px;
     }
     
+    .player-stats .stats-bars {
+        flex: 1;
+    }
+    
+    .battle-arena {
+        padding: 20px;
+    }
+    
+    .player-avatar {
+        font-size: 3.5em;
+    }
+    
     .weapons-grid, .skills-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .shop-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile devices - large */
+@media (max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+    
+    #game-container {
+        padding: 5px;
+    }
+    
+    header {
+        margin-bottom: 15px;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+        margin-bottom: 5px;
+    }
+    
+    #game-status {
+        font-size: 1em;
+    }
+    
+    /* Connection status - mobile position */
+    #connection-status {
+        top: 10px;
+        right: 10px;
+        padding: 6px 12px;
+        font-size: 0.8em;
+    }
+    
+    /* Lobby mobile optimization */
+    .lobby-content {
+        padding: 20px 15px;
+        margin: 10px;
+    }
+    
+    .lobby-content h2 {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+    }
+    
+    #player-name {
+        padding: 12px;
+        font-size: 1.1em;
+    }
+    
+    #join-btn, #play-again-btn, #return-lobby-btn {
+        padding: 12px 24px;
+        font-size: 1em;
+        width: 100%;
+        margin: 8px 0;
+    }
+    
+    /* Game header mobile layout */
+    .game-header {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .player-stats {
+        padding: 15px;
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .player-stats h3 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    
+    .stat-bar {
+        margin-bottom: 8px;
+    }
+    
+    .stat-label {
+        width: 25px;
+        font-size: 0.8em;
+    }
+    
+    .bar-container {
+        height: 16px;
+        margin: 0 8px;
+    }
+    
+    .stat-value {
+        width: 50px;
+        font-size: 0.8em;
+    }
+    
+    .currency {
+        font-size: 1em;
+    }
+    
+    /* Battle info mobile */
+    .battle-info {
+        width: 100%;
+    }
+    
+    #turn-indicator {
+        font-size: 1.2em;
+        padding: 10px 15px;
+        margin-bottom: 15px;
+    }
+    
+    #battle-log {
+        height: 120px;
+        padding: 15px;
+        font-size: 0.8em;
+    }
+    
+    /* Battle arena mobile */
+    .battle-arena {
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0 15px;
+        padding: 20px 10px;
+    }
+    
+    .player-avatar {
+        font-size: 3em;
+    }
+    
+    .vs-indicator {
+        font-size: 1.5em;
+        order: 1;
+    }
+    
+    .player-avatar-container:first-child {
+        order: 0;
+    }
+    
+    .player-avatar-container:last-child {
+        order: 2;
+    }
+    
+    .effect-icon {
+        width: 25px;
+        height: 25px;
+        font-size: 1em;
+    }
+    
+    /* Action panel mobile */
+    .action-panel {
+        padding: 15px 10px;
     }
     
     .action-tabs {
-        flex-wrap: wrap;
+        margin-bottom: 15px;
+        gap: 0;
     }
     
     .tab-btn {
-        flex: 1 1 50%;
-        min-width: 120px;
+        padding: 10px 8px;
+        font-size: 0.9em;
+        min-width: auto;
+        flex: 1;
+    }
+    
+    .tab-content h3 {
+        font-size: 1.1em;
+        margin-bottom: 15px;
+    }
+    
+    /* Weapons and skills mobile */
+    .weapons-grid, .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .weapon-btn, .skill-btn {
+        padding: 15px 10px;
+        font-size: 0.9em;
+        min-height: 60px;
+    }
+    
+    /* Shop mobile */
+    .shop-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .shop-item {
+        padding: 12px;
+        gap: 12px;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .item-icon {
+        font-size: 2em;
+        width: auto;
+    }
+    
+    .item-info {
+        text-align: center;
+    }
+    
+    .buy-btn {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    /* Inventory mobile */
+    .inventory-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+    
+    .inventory-item {
+        padding: 10px 5px;
+    }
+    
+    .inventory-item .item-icon {
+        font-size: 1.5em;
+        margin-bottom: 5px;
+    }
+    
+    .inventory-item .item-name {
+        font-size: 0.8em;
+    }
+    
+    .inventory-item .item-quantity {
+        width: 16px;
+        height: 16px;
+        font-size: 0.7em;
+    }
+    
+    .inventory-empty {
+        padding: 30px 20px;
+        font-size: 0.9em;
+    }
+    
+    /* Game over mobile */
+    .game-over-content {
+        padding: 30px 20px;
+        margin: 10px;
+        max-width: none;
+    }
+    
+    .game-over-content h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    
+    #match-rewards {
+        padding: 15px;
+        margin: 20px 0;
+    }
+    
+    .reward-item {
+        font-size: 1.1em;
+    }
+    
+    .game-over-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .game-over-actions button {
+        width: 100%;
+    }
+    
+    /* Notifications mobile */
+    #notifications {
+        top: 60px;
+        right: 10px;
+        left: 10px;
+    }
+    
+    .notification {
+        max-width: none;
+        font-size: 0.9em;
+        padding: 12px 15px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+    
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    .lobby-content {
+        padding: 15px 10px;
+    }
+    
+    .player-stats {
+        padding: 10px;
+    }
+    
+    .battle-arena {
+        padding: 15px 5px;
+    }
+    
+    .player-avatar {
+        font-size: 2.5em;
+    }
+    
+    .action-panel {
+        padding: 10px 5px;
+    }
+    
+    .tab-btn {
+        padding: 8px 5px;
+        font-size: 0.8em;
+    }
+    
+    .weapon-btn, .skill-btn {
+        padding: 12px 8px;
+        font-size: 0.8em;
+    }
+    
+    .shop-item {
+        padding: 10px;
+    }
+    
+    .inventory-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .inventory-item {
+        padding: 8px 4px;
+    }
+}
+
+/* Extra small devices - very small phones */
+@media (max-width: 360px) {
+    header h1 {
+        font-size: 1.3em;
+    }
+    
+    .player-avatar {
+        font-size: 2em;
+    }
+    
+    .tab-btn {
+        font-size: 0.7em;
+        padding: 6px 4px;
+    }
+    
+    .inventory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+    #game-container {
+        padding: 5px;
+    }
+    
+    header {
+        margin-bottom: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.5em;
+        margin-bottom: 5px;
+    }
+    
+    .battle-arena {
+        margin: 10px 0;
+        padding: 15px 10px;
+    }
+    
+    .player-avatar {
+        font-size: 2.5em;
+    }
+    
+    #battle-log {
+        height: 80px;
+    }
+    
+    .action-panel {
+        padding: 10px;
+    }
+    
+    .weapon-btn, .skill-btn {
+        padding: 10px 8px;
+        min-height: 50px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+    .weapon-btn, .skill-btn, .buy-btn, .inventory-item {
+        min-height: 44px; /* iOS recommended touch target size */
+    }
+    
+    .tab-btn {
+        min-height: 44px;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .weapon-btn:hover, .skill-btn:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    /* Add active state for better touch feedback */
+    .weapon-btn:active, .skill-btn:active {
+        transform: scale(0.95);
+    }
+    
+    .buy-btn:active, .inventory-item:active {
+        transform: scale(0.95);
     }
 }
 
